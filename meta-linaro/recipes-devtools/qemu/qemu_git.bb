@@ -1,12 +1,11 @@
 require recipes-devtools/qemu/qemu.inc
 
-SRCREV = "${AUTOREV}"
+SRCREV = "5c5432e7d630592ddcc1876ac8a1505f8f14ef15"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=441c28d2cf86e15a37fa47e15a72fbac \
                     file://COPYING.LIB;endline=24;md5=c04def7ae38850e7d3ef548588159913"
 
-PV = "1.6.0+git${SRCPV}"
-PR = "r2"
+PV = "1.6.90+git${SRCPV}"
 
 SRC_URI = "git://git.qemu.org/qemu.git \
            file://aarch64-softmmu.patch \
