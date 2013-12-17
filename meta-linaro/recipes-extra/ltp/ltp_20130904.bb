@@ -24,7 +24,7 @@ DEPENDS = "attr libaio libcap acl openssl"
 SRC_URI = "${SOURCEFORGE_MIRROR}/project/ltp/LTP%20Source/ltp-${PV}/ltp-full-${PV}.tar.bz2 \
            file://fix-arm64.patch \
            file://fix-pm-tests.patch \
-           "
+	   file://0001-max_map_count-filter-out-not-accounted-vector-stub-f.patch"
 
 SRC_URI[md5sum] = "0cf2ccb7199f8318d413c62a085629f0"
 SRC_URI[sha256sum] = "662c3661a4d1bfbf3187d0835f35e613b43eedc35a840e3283e378a19606ee0b"
