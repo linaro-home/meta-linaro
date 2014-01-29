@@ -1,0 +1,8 @@
+KERNEL_IMAGETYPE = "bzImage"
+
+MACHINE_FEATURES += "x86"
+
+MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "v86d"
+
+EXTRA_IMAGE_FEATURES += "autoserial"
+PACKAGE_GROUP_autoserial = "auto-serial-console"
