@@ -45,6 +45,7 @@ SDK_IMAGE_INSTALL += "\
     libc-client-dev \
     libdwarf-dev \
     libevent-fb \
+    liblzma \
     libmcrypt \
     libmemcached \
     libmysqlclient-r \
