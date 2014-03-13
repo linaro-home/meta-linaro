@@ -12,6 +12,8 @@ IMAGE_INSTALL += " \
     bash \
     procps \
     util-linux-fsck \
+    dpkg \
+    tar \
     "
 
 IMAGE_INSTALL_append_aarch64 = "libhugetlbfs"
