@@ -1,8 +1,8 @@
-MMYY = "13.10"
+MMYY = "14.04"
 RELEASE = "20${MMYY}"
 PR = "r${RELEASE}"
 
-SRC_URI = "http://releases.linaro.org/${MMYY}/components/toolchain/eglibc-linaro/eglibc-linaro-${PV}-${RELEASE}.tar.bz2 \
+SRC_URI = "http://cbuild.validation.linaro.org/snapshots/eglibc-linaro-2.19-${RELEASE}.tar.bz2 \
            file://eglibc-svn-arm-lowlevellock-include-tls.patch \
            file://IO-acquire-lock-fix.patch \
            file://mips-rld-map-check.patch \
@@ -22,19 +22,16 @@ SRC_URI = "http://releases.linaro.org/${MMYY}/components/toolchain/eglibc-linaro
            file://0003-eglibc-menuconfig-build-instructions.patch \
            file://fsl-ppc-no-fsqrt.patch \
            file://0001-R_ARM_TLS_DTPOFF32.patch \
-           file://tzselect-sh.patch \
-           file://tzselect-awk.patch \
            file://0001-eglibc-run-libm-err-tab.pl-with-specific-dirs-in-S.patch \
            file://fix-tibetian-locales.patch \
-           file://0001-ARM-Pass-dl_hwcap-to-IFUNC-resolver.patch \
           "
 
-SRC_URI[md5sum] = "3effe2d563db9dcf6f789db647d1b03d"
-SRC_URI[sha256sum] = "a62f36a1f26d92504f697ab62283401e82972f9bd357df1576890d89f7b87b6f"
+SRC_URI[md5sum] = "4d9a406039cd33e14349a63773daac61"
+SRC_URI[sha256sum] = "2f22d15d4972d739854b0be7e4f16cc344c147d382ae10beed7c180003815e34"
 
 LIC_FILES_CHKSUM = "file://LICENSES;md5=e9a558e243b36d3209f380deb394b213 \
-      file://COPYING;md5=393a5ca445f6965873eca0259a17f833 \
+      file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
       file://posix/rxspencer/COPYRIGHT;md5=dc5485bb394a13b2332ec1c785f5d83a \
-      file://COPYING.LIB;md5=bbb461211a33b134d42ed5ee802b37ff "
+      file://COPYING.LIB;md5=4fbd65380cdd255951079008b364516c"
 
 S = "${WORKDIR}/eglibc-linaro-${PV}-${RELEASE}"
