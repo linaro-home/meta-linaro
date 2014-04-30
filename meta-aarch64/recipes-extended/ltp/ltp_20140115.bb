@@ -32,7 +32,7 @@ SRC_URI = "git://github.com/linux-test-project/ltp.git \
 
 S = "${WORKDIR}/git"
 
-inherit autotools
+inherit autotools-brokensep
 
 TARGET_CC_ARCH += "${LDFLAGS}"
 EXTRA_OECONF = " --with-power-management-testsuite --with-realtime-testsuite "
@@ -43,7 +43,7 @@ export exec_prefix = "/opt/ltp"
 # ltp doesn't regenerate ffsb-6.0-rc2 configure and hardcode configure call.
 # we explicitly force regeneration of that directory and pass configure options.
 do_configure_prepend() {
-    (cd utils/ffsb-6.0-rc2; autoreconf -fvi; ./configure ${CONFIGUREOPTS})
+    (cd ${S}/utils/ffsb-6.0-rc2; autoreconf -fvi; ./configure ${CONFIGUREOPTS})
 }
 
 do_install(){
