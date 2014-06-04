@@ -1,0 +1,26 @@
+From 04575cf6854e5fa9815707e67dc0c307b4273bcf Mon Sep 17 00:00:00 2001
+From: root <maxim.uvarov@linaro.org>
+Date: Mon, 26 May 2014 14:42:32 +0400
+Subject: [PATCH] no usr local
+
+Signed-off-by: Maxim Uvarov <maxim.uvarov@linaro.org>
+---
+ m4/libtool.m4 | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/m4/libtool.m4 b/m4/libtool.m4
+index 18dc84b..b28c8c4 100644
+--- a/m4/libtool.m4
++++ b/m4/libtool.m4
+@@ -2229,7 +2229,7 @@ BEGIN {RS=" "; FS="/|\n";} {
+   esac
+   sys_lib_search_path_spec=`$ECHO "$lt_search_path_spec" | $lt_NL2SP`
+ else
+-  sys_lib_search_path_spec="/lib /usr/lib /usr/local/lib"
++  sys_lib_search_path_spec="/lib /usr/lib"
+ fi])
+ library_names_spec=
+ libname_spec='lib$name'
+-- 
+1.8.5.1.163.gd7aced9
+
