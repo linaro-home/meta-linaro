@@ -1,0 +1,27 @@
+From 065e029337adc3373e1789c95658e5bdf976b2fd Mon Sep 17 00:00:00 2001
+From: Koen Kooi <koen.kooi@linaro.org>
+Date: Fri, 13 Jun 2014 14:14:13 +0200
+Subject: [PATCH] test: don't try to recurse into 'Makefile', it's not a
+ directory
+
+Signed-off-by: Koen Kooi <koen.kooi@linaro.org>
+---
+ test/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/test/Makefile b/test/Makefile
+index 500fd13..a5f3f07 100644
+--- a/test/Makefile
++++ b/test/Makefile
+@@ -3,7 +3,7 @@
+ #
+ # SPDX-License-Identifier:	BSD-3-Clause
+ 
+-TESTS=$(filter %, $(wildcard */))
++TESTS=api_test example generator l2fwd packet packet_netmap timer
+ 
+ .PHONY: all clean install
+ 
+-- 
+1.9.3
+
