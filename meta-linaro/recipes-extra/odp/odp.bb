@@ -7,7 +7,9 @@ LICENSE = "BSD | GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4ccfa994aa96974cfcd39a59faee20a2"
 PV = "20140605+git${SRCPV}"
 
-SRC_URI = "git://git.linaro.org/lng/odp.git;name=odp"
+SRC_URI = "git://git.linaro.org/lng/odp.git;name=odp \
+           file://0001-test-don-t-try-to-recurse-into-Makefile-it-s-not-a-d.patch \
+          "
 
 SRCREV_odp = "a65917065da23a970f10b591f317c362e50dc36b"
 SRCREV_FORMAT = "odp"
