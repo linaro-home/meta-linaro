@@ -15,7 +15,7 @@ SRCREV_FORMAT = "odp"
 S = "${WORKDIR}/git"
 
 PARALLEL_MAKE = ""
-EXTRA_OEMAKE = "CC='${CC}'"
+EXTRA_OEMAKE = "CC='${CC}' CFLAGS=-fPIC "
 
 do_install() {
 	oe_runmake tests_install DESTDIR=${D}${prefix}
