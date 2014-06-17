@@ -14,6 +14,8 @@ SRCREV_FORMAT = "odp"
 
 S = "${WORKDIR}/git"
 
+CFLAGS += "-fPIC"
+
 PARALLEL_MAKE = ""
 EXTRA_OEMAKE = "CC='${CC}'"
 
