@@ -7,7 +7,7 @@ SRCREV = "${AUTOREV}"
 SRCREV_FORMAT = "kernel"
 S = "${WORKDIR}/git"
 
-COMPATIBLE_MACHINE = "(lng-x86-64|lng-rt-x86-64)"
+COMPATIBLE_MACHINE = "(lng-x86-64|lng-rt-x86-64|rt-64)"
 
 do_configure_prepend_lng-x86-64() {
     scripts/kconfig/merge_config.sh -m arch/x86/configs/x86_64_defconfig \
@@ -17,6 +17,9 @@ do_configure_prepend_lng-x86-64() {
     scripts/config -e CONFIG_DEVTMPFS_MOUNT
     scripts/config -e CONFIG_E1000E
     scripts/config -e CONFIG_IXGBE
+    #    scripts/config -e CONFIG_MTD
+    #    scripts/config -e CONFIG_MTD_BLKDEVS
+    #    scripts/config -e CONFIG_MTD_BLOCK
 }
 
 do_configure_prepend_lng-rt-x86-64() {
@@ -24,6 +27,15 @@ do_configure_prepend_lng-rt-x86-64() {
      linaro/configs/hugepage.conf linaro/configs/preempt-rt.conf \
      linaro/configs/ovs.conf linaro/configs/kvm-host.conf \
      linaro/configs/no_hz_full.conf
+    scripts/config -e CONFIG_DEVTMPFS
+    scripts/config -e CONFIG_DEVTMPFS_MOUNT
+    scripts/config -e CONFIG_E1000E
+    scripts/config -e CONFIG_IXGBE
+}
+
+do_configure_prepend_rt-64() {
+    scripts/kconfig/merge_config.sh -m arch/x86/configs/x86_64_defconfig \
+    ${WORKDIR}/preempt-rt.conf
     scripts/config -e CONFIG_DEVTMPFS
     scripts/config -e CONFIG_DEVTMPFS_MOUNT
     scripts/config -e CONFIG_E1000E
