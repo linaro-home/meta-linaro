@@ -22,6 +22,7 @@ IMAGE_INSTALL += " \
     trace-cmd \
     tunctl \
     usecpu \
+    libhugetlbfs-tests \
     "
 
 IMAGE_INSTALL_append_armv7a = " \
