@@ -22,6 +22,9 @@ IMAGE_INSTALL += " \
     trace-cmd \
     tunctl \
     usecpu \
+    odp \
+    snort \
+    daq-odp \
     "
 
 IMAGE_INSTALL_append_armv7a = " \
@@ -29,7 +32,6 @@ IMAGE_INSTALL_append_armv7a = " \
     systemtap \
     valgrind \
     trinity-example \
-    odp \
     "
 
 IMAGE_INSTALL_append_aarch64 = " \
@@ -37,7 +39,6 @@ IMAGE_INSTALL_append_aarch64 = " \
     "
 
 IMAGE_INSTALL_append_qemux86 = " \
-    odp \
     "
 
 IMAGE_FEATURES += "\
