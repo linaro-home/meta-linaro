@@ -15,13 +15,17 @@ inherit autotools
 
 FILESEXTRAPATHS =. "${FILE_DIRNAME}/${P}:"
 
-SRC_URI = "http://downloads.yoctoproject.org/releases/eglibc/eglibc-${PV}-svnr25243.tar.bz2 \
-	   file://fix_for_centos_5.8.patch;patchdir=.. \
-	  "
-SRC_URI[md5sum] = "197836c2ba42fb146e971222647198dd"
-SRC_URI[sha256sum] = "baaa030531fc308f7820c46acdf8e1b2f8e3c1f40bcd28b6e440d1c95d170d4c"
+MMYY = "14.08"
+RELEASE = "20${MMYY}"
+PR = "r${RELEASE}"
 
-S = "${WORKDIR}/eglibc-${PV}/localedef"
+SRC_URI = "http://cbuild.validation.linaro.org/snapshots/eglibc-${PV}-${RELEASE}.tar.bz2 \
+          "
+
+SRC_URI[md5sum] = "f4f66db3745273367d9f2901d449e3f4"
+SRC_URI[sha256sum] = "d792b859c356d99a49b94042cb7aa71758b840173d85286d5e66d994ce036384"
+
+S = "${WORKDIR}/eglibc-${PV}-${RELEASE}/localedef"
 
 do_unpack_append() {
     bb.build.exec_func('do_move_ports', d)
