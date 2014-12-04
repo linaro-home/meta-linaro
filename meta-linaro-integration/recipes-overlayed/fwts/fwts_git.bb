@@ -5,9 +5,9 @@ HOMEPAGE = "https://wiki.ubuntu.com/Kernel/Reference/fwts"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://src/main.c;beginline=1;endline=16;md5=deb8af5388e838d133eaa036f4d1496f"
 
-PV = "14.09.00"
+PV = "14.11.00"
 
-SRCREV = "cf14f3b4bab716dea95de772ad52786c1cbe862a"
+SRCREV = "8740395eb4ff4a397f1ccbe38a5ebe3b1fdaea98"
 SRC_URI = "git://kernel.ubuntu.com/hwe/fwts.git \
            file://0001-ACPI-improve-the-return-values-and-the-log-info-in-t.patch \
            file://0002-ACPI-add-the-hardware-reduced-mode-check-function-in.patch \
@@ -19,6 +19,8 @@ S = "${WORKDIR}/git"
 DEPENDS = "libpcre json-c glib-2.0"
 
 inherit autotools-brokensep
+
+CFLAGS += "-I${STAGING_INCDIR}/json-c"
 
 FILES_${PN} += "${libdir}/fwts/lib*${SOLIBS}"
 FILES_${PN}-dev += "${libdir}/fwts/lib*${SOLIBSDEV} ${libdir}/fwts/lib*.la"
