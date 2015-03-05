@@ -63,9 +63,17 @@ qemux86_fixup() {
         # Add a default network interface
         echo "auto eth0" >> ${IMAGE_ROOTFS}/etc/network/interfaces
         echo "iface eth0 inet dhcp" >> ${IMAGE_ROOTFS}/etc/network/interfaces
+}
 
-        # The hostname can be changed by using
-        # hostname_pn-base-files = "linaro"
-        # See base-files recipe
-        echo "linaro" > ${IMAGE_ROOTFS}${sysconfdir}/hostname
+# The hostname can be changed by using
+#     hostname_pn-base-files = "linaro"
+# but this would have to be done in site.conf or local.conf,
+# so it would apply to ALL recipes which used base-files
+# Instead, we do the following in order to confine the
+# host name override to all builds of this root filesystem image
+#
+IMAGE_PREPROCESS_COMMAND += "do_mangle_hostname;" 
+
+do_mangle_hostname() {
+    echo 'linaro' > ${IMAGE_ROOTFS}${sysconfdir}/hostname
 }
