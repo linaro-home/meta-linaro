@@ -3,7 +3,9 @@ PV = "3.14+git${SRCPV}"
 
 require linaro-lng.inc
 
-SRC_URI = "git://git.linaro.org/kernel/linux-linaro-lng.git;branch=linux-linaro-lng-v3.14-rt"
+SRC_URI = "git://git.linaro.org/kernel/linux-linaro-lng.git;branch=linux-linaro-lng-v3.14-rt \
+           file://kvm-x86.conf \
+"
 
 do_configure_prepend() {
     cd ${S}
@@ -11,7 +13,9 @@ do_configure_prepend() {
      linaro/configs/preempt-rt.conf \
      linaro/configs/ovs.conf \
      linaro/configs/kvm-host.conf \
-     linaro/configs/no_hz_full.conf
+     linaro/configs/kvm-guest.conf \
+     linaro/configs/no_hz_full.conf \
+     ${WORKDIR}/kvm-x86.conf
     scripts/config -e CONFIG_DEVTMPFS
     scripts/config -e CONFIG_DEVTMPFS_MOUNT
     scripts/config -e CONFIG_E1000E
