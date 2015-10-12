@@ -3,6 +3,9 @@ PV = "3.14+git${SRCPV}"
 
 require linaro-lng.inc
 
+# We don't use any SRCREV because we want to trigger on commit.
+# This means that we can't reproduce the builds. however, that is expected.
+
 SRC_URI = "git://git.linaro.org/kernel/linux-linaro-lng.git;branch=linux-linaro-lng-v3.14-rt-test"
 
 do_configure_prepend() {
