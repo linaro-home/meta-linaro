@@ -90,6 +90,13 @@ SDK_IMAGE_INSTALL += "\
     "
 
 IMAGE_PREPROCESS_COMMAND += "do_systemd_network ; "
+IMAGE_POSTPROCESS_COMMAND += "do_hacknfs ; "
+
+
+# The boot will fail if you have (k)NFSD disabled or no nfs modules installed
+do_hacknfs () {
+	rm -f ${IMAGE_ROOTFS}/lib/systemd/system/sysinit.target.wants/proc-fs-nfsd.mount
+}
 
 do_systemd_network () {
         install -d ${IMAGE_ROOTFS}${sysconfdir}/systemd/network
